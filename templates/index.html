@@ -1,0 +1,36 @@
+{% include "header.html" %}
+
+<header
+  class="masthead"
+  style="background-image: url('../static/assets/img/cafes.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Hey there!</h1>
+
+          <h2><b> Are you looking for a cafe?</b></h2>
+
+          <span class="subheading">We got you, you can find them below.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+          {%for each in range(3):%}
+          <div class="cafes">
+          <h3>Name of the Cafe</h3>
+            <p>Some information about that</p>
+          </div>
+          <hr class="my-4" />
+          {%endfor%}
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}
