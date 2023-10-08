@@ -2,13 +2,14 @@ from flask import Flask, render_template, url_for, redirect
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, DateField, SubmitField, URLField,SelectField
-from wtforms.validators import DataRequired, Email, Length, URL
+from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import DataRequired, URL
+import os
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "afafafafas2131"
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap5(app)
 
-##Connect to Database
+#Connect to Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
 db = SQLAlchemy()
 db.init_app(app)
@@ -45,14 +46,6 @@ class cafe(db.Model):
 with app.app_context():
     db.create_all()
 
-
-#
-# with app.app_context():
-#     result = db.session.execute(db.select(cafe).order_by(cafe.name))
-#     all_books = result.scalars().all()
-# for book in all_books:
-#     print(book.has_wifi)
-#     # if book.has_wifi:
 
 @app.route("/")
 def main():
@@ -92,7 +85,8 @@ def show_cafe(cafe_id):
     showed_cafe=db.get_or_404(cafe,cafe_id)
     return render_template('show_cafe.html', cafe=showed_cafe)
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 
 

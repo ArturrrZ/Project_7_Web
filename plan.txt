@@ -1,0 +1,22 @@
+ Postman how to create API server.( Project )
+
+
+
+
+
+
+
+DO THAT WITH GIT. RENDER FORM, FLASK WTF FORMS, SQLITE DB
+
+----------------------DONE BELOW---------------------------------
+
+1. Create a main page (greeting and button to collection of cafes).
+front end from the day 69 (save time)
+header for all of them (home, cafes, add)
+
+2. All cafes as a list with plain info
+
+3. show cafe html file for each cafe with picture and detailed info.
+
+
+4. Add new cafe with FLASK WTF & Bootstrap forms( with validators)
